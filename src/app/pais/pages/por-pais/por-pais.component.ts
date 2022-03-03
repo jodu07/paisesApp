@@ -11,6 +11,9 @@ import { PaisService } from '../../services/pais.service';
 export class PorPaisComponent {
 
 
+  placeholder: string = 'Buscar por País...';
+
+
   paises : Country[] = [];
 
   termino: string = 'Co';

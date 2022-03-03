@@ -31,6 +31,15 @@ export class PaisService {
     */
   }
 
+  buscarPorCapital(termino: string): Observable<Country[]>{
+
+    const url = `${this.apiUrl}/capital/${termino}`;
+    console.log(url);
+     return this.http.get<Country[]>(url)
+     
+  }
+
+
   buscarPorRegion(termino: string): Observable<Country[]>{
 
     const url = `${this.apiUrl}/region/${termino}`;
@@ -38,21 +47,5 @@ export class PaisService {
      return this.http.get<Country[]>(url)
      
   }
-     /*
-            .pipe(
-              / operadores rxjs(extensiones reactivas)= funciones que se ejecutan en base al producto de la peticion del observable get.(url)
-              / catchError recibe un error y debe regresar un observable
-              / of es una funcion que genera observables, transfroma lo que sea en observables
-              catchError(err => of(['hola']) )
-            );     
-    */
-
-            
-
-
-
-
-
-
 
 }
