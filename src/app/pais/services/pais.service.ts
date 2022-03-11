@@ -34,8 +34,8 @@ export class PaisService {
   buscarPorCapital(termino: string): Observable<Country[]>{
 
     const url = `${this.apiUrl}/capital/${termino}`;
-    console.log(url);
-     return this.http.get<Country[]>(url)
+  //  console.log(url);
+     return this.http.get<Country[]>(url);
      
   }
 
@@ -43,9 +43,17 @@ export class PaisService {
   buscarPorRegion(termino: string): Observable<Country[]>{
 
     const url = `${this.apiUrl}/region/${termino}`;
-    console.log(url);
-     return this.http.get<Country[]>(url)
+   // console.log(url);
+     return this.http.get<Country[]>(url);
      
+  }
+
+  getPaisPorAlpha( codigo: string ): Observable<Country>{
+    const url = `${this.apiUrl}/alpha/${codigo}`;
+
+    console.log(url);
+    return this.http.get<Country>(url);
+
   }
 
 }
