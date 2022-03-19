@@ -1,37 +1,32 @@
-<h2>Por Region <small> {{regionActiva | titlecase}} </small></h2>
-<hr/>
+<div class="animate__animated animate__fadeIn animate__faster">
+  <h2>
+    Por Region <small> {{ regionActiva | titlecase }} </small>
+  </h2>
+  <hr />
 
-<h5>Seleccione la región</h5>
+  <h5>Seleccione la región</h5>
 
-<div class="row">
+  <div class="row">
     <div class="col">
-        <!--  primera forma [class.btn-warning]="region === regionActiva" -->  
-        <!-- segunda forma [ngClass]="{
+      <!--  primera forma [class.btn-warning]="region === regionActiva" -->
+      <!-- segunda forma [ngClass]="{
             'btn-warning': region === regionActiva,
             'btn-outline-primary': region !== regionActiva
         }" -->
 
-        <button *ngFor="let region of regiones"
-        [class]= "getClaseCss(region)"     
-        (click)="activarRegion(region)">
-            {{region  | titlecase}}
-        </button>
+      <button
+        *ngFor="let region of regiones"
+        [class]="getClaseCss(region)"
+        (click)="activarRegion(region)"
+      >
+        {{ region | titlecase }}
+      </button>
     </div>
+  </div>
 </div>
-
 
 <div *ngIf="paises.length > 0" class="row">
-    <div class="col">
-        <app-pais-tabla [paisesHijo]="paises">            
-        </app-pais-tabla>
-    </div>
+  <div class="col">
+    <app-pais-tabla [paisesHijo]="paises"> </app-pais-tabla>
+  </div>
 </div>
-
-
-
-
-
-
-
-
-
