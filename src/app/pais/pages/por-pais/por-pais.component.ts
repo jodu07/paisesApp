@@ -6,18 +6,24 @@ import { PaisService } from '../../services/pais.service';
   selector: 'app-por-pais',
   templateUrl: './por-pais.component.html',
   styles: [
+    `
+    li {
+      cursor: pointer;
+    }
+    `
   ]
 })
 export class PorPaisComponent {
 
 
   placeholder: string = 'Buscar por País...';
-
-
   paises : Country[] = [];
-
-  termino: string = 'Co';
+  termino: string = '';
   hayError: boolean = false;
+
+
+  paisesSugeridos: Country[] = [];
+  mostrarSugerencias: Boolean = false;
   
   constructor( private _paisService: PaisService){
 
@@ -25,6 +31,8 @@ export class PorPaisComponent {
 
   buscar( terminoInput: string){
     //console.log(this.termino);
+
+    this.mostrarSugerencias = false;
 
     this.hayError = false;    // no hay error
     this.termino = terminoInput;
@@ -50,9 +58,25 @@ export class PorPaisComponent {
   sugerencias( termino: string){
 
     this.hayError = false;
+    this.termino = termino;
+    this.mostrarSugerencias = true;
+    
     // 5TODO: crear sugerencias 
+    this._paisService.buscarPais( termino )
+       .subscribe(
+         paises => this.paisesSugeridos = paises.splice(0,5),
+         (err) => this.paisesSugeridos = []
+         );
 
   }
+
+
+  buscarSugerido(termino: string){
+    this.buscar(termino);
+    
+  }
+
+
 
 
 }
