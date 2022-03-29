@@ -13,7 +13,7 @@ const routes: Routes = [
 
     //pathMatch me dirige a esta pagina cuando es vacio, queda como la principal
     {path:'' , component: PorPaisComponent, pathMatch:'full'}, 
-    
+        
     {path:'capital' , component: PorCapitalComponent},    
     {path:'region' , component: PorRegionComponent},
     {path:'pais/:codigoPais' , component: VerPaisComponent},
