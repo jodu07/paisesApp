@@ -12,10 +12,6 @@ import { PaisTablaComponent } from './components/pais-tabla/pais-tabla.component
 import { PaisInputComponent } from './components/pais-input/pais-input.component';
 
 
-
-
-
-
 @NgModule({
   declarations: [
     PorCapitalComponent,
